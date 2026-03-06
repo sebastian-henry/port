@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI/UX Portfolio</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter, sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:white;
+padding:60px 8%;
+border-radius:30px 30px 0 0;
+color:#111;
+line-height:1.5;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:white;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 20px;
+font-weight: bold;
+position:sticky;
+text-align: left;
+top:0;
+z-index:10;
+}
+
+.logo{
+font-weight:700;
+font-size:65px;
+color: rgb(7, 0, 195);
+padding: 10px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#111;
+font-size:14px;
+font-weight: bold;
+opacity:.7;
+}
+
+nav ul li a:hover{
+opacity:1;
+}
+
+.contact-btn{
+background:#6e63ff;
+color:white;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+padding:80px 8%;
+text-align:center;
+}
+
+.hero h1{
+font-size: 54px;
+font-family: 'Lucida Sans';
+font-weight:600;
+max-width:700px;
+margin:auto;
+color: #007BFF;
+}
+
+.hero p{
+margin-top:10px;
+opacity:.6;
+color: #007BFF;
+}
+
+/* PROFILE CARDS */
+
+.profile-stack{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:15px;
+}
+
+.profile-stack img{
+width:140px;
+height:110px;
+object-fit:cover;
+border-radius:16px;
+box-shadow:0 15px 25px rgba(0,0,0,0.08);
+transition:0.4s;
+}
+
+.profile-stack img:nth-child(2){
+transform:scale(1.1);
+}
+
+.profile-stack img:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+/* FEATURED */
+
+.section{
+padding:60px 8%;
+}
+
+.section-title{
+font-size:18px;
+font-weight:600;
+margin-bottom:30px;
+}
+
+.projects{
+display:flex;
+flex-direction:column;
+gap:35px;
+}
+
+.project-card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 15px 30px rgba(0,0,0,0.06);
+transition:0.4s;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.project-card img{
+width:100%;
+display:block;
+}
+
+.project-info{
+padding:18px;
+}
+
+.project-info h3{
+font-size:16px;
+margin-bottom:5px;
+}
+
+.project-info p{
+font-size:13px;
+opacity:.6;
+}
+
+.project-info a{
+display:inline-block;
+margin-top:10px;
+padding:8px 14px;
+background:#6e63ff;
+color:white;
+border-radius:8px;
+font-size:12px;
+text-decoration:none;
+}
+
+/* ABOUT */
+
+.about{
+background:white;
+padding:60px 8%;
+border-radius:30px 30px 0 0;
+}
+
+.about h2{
+font-size:22px;
+margin-bottom:10px;
+font-family: 'Lucida Sans';
+}
+
+.about p{
+opacity:.7;
+max-width:650px;
+}
+
+/* EXPERIENCE */
+
+.experience{
+margin-top:40px;
+}
+
+.exp-item{
+display:flex;
+align-items:center;
+gap:12px;
+margin-top:15px;
+}
+
+.exp-item img{
+width:30px;
+}
+
+/* SOCIAL */
+
+.social{
+margin-top:30px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.social a{
+background:#f1f1f3;
+padding:10px 18px;
+border-radius:10px;
+font-size:13px;
+text-decoration:none;
+color:#111;
+transition:0.3s;
+}
+
+.social a:hover{
+background:#6e63ff;
+color:white;
+}
+
+/* CONTACT */
+
+.contact{
+padding:80px 8%;
+text-align:center;
+}
+
+.contact h2{
+font-size:22px;
+}
+
+.contact p{
+margin-top:10px;
+opacity:.6;
+}
+
+.contact button{
+margin-top:20px;
+background:#6e63ff;
+border:none;
+color:white;
+padding:12px 22px;
+border-radius:25px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+font-size:12px;
+opacity:.5;
+}
+
+/* ANIMATION */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:26px;
+font-family: 'Lucida Sans';
+}
+
+.profile-stack img{
+width:90px;
+height:120px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+/* SOCIAL GRID */
+
+.social-grid{
+
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:25px;
+max-width:600px;
+
+}
+
+.social-card{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+text-decoration:none;
+color:#111;
+transition:0.3s;
+
+}
+
+.social-card img{
+
+width:55px;
+height:55px;
+border-radius:16px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+
+}
+
+.social-card span{
+
+margin-top:8px;
+font-size:13px;
+opacity:0.7;
+
+}
+
+.social-card:hover img{
+
+transform:translateY(-6px) scale(1.08);
+
+}
+
+.social-card:hover span{
+
+opacity:1;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    
+
+<div class="logo">JC</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+
+<a href="#contact" class="contact-btn">Let's Connect</a>
+
+</nav>
+
+
+<section class="hero fade" id="home">
+
+<h1>Just Costa</h1>
+<h2>Data . Digital .Growth</h2>
+<p1>Helping businesses grow with data analytics, digital marketing, branding and AI tools</p1>
+
+</section>
+
+
+<section class="section" id="projects">
+
+<h2 class="section-title fade">Featured Projects</h2>
+
+<div class="projects">
+
+<div class="project-card fade">
+<img src="https://images.unsplash.com/photo-1551650975-87deedd944c3">
+<div class="project-info">
+<h3>GhalaNetwork</h3><h4>Ghala Affiliate Markerting App</h4>
+<p>UI & Product Design</p>
+<a href="#" target="_blank">View Project</a>
+</div>
+</div>
+
+<div class="project-card fade">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+<div class="project-info">
+<h3>NeuroTech Africa</h3><h4>Software Development Company</h4>
+<p>Software Interface Design</p>
+<a href="#" target="_blank">View Project</a>
+</div>
+</div>
+
+<div class="project-card fade">
+<img src="https://images.unsplash.com/photo-1558655146-d09347e92766">
+<div class="project-info">
+<h3>Ghalis</h3>
+<p>Web App Dashboard</p>
+<a href="#" target="_blank">View Project</a>
+</div>
+</div>
+
+<div id="services">
+
+
+
+
+<div class="project-card fade">
+<div class="portfolio-item">
+  <img src="images/12345.jpg." alt="my photo">
+  <p>Campaign analytics, social media growth strategy, and data-driven marketing insights.</p>
+</div>
+<div class="project-info">
+<h3>Digital Marketing</h3>
+<p>I help brands grow online through social media marketing and online advertising.</p>
+<a href="#" target="_blank">View Project</a>
+</div>
+</div>
+
+</section>
+
+
+<section class="about fade" id="about">
+
+<h2>Welcome to my Creative Corner!</h2>
+
+<p>
+I'm Costantino Henry, a multidisciplinary professional combining healthcare expertise with data analytics, digital marketing, AI tools and branding strategy.
+I help businesses make better decisions using data and modern digital solutions
+</p>
+
+<div class="experience">
+
+<h3>Experience</h3>
+
+<div class="exp-item">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+<span>Product Designer – Big Firm</span>
+</div>
+
+<div class="exp-item">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968866.png">
+<span>UI Engineer – Startup</span>
+</div>
+
+</div>
+
+
+<div class="social-grid">
+
+<a href="https://instagram.com" target="_blank" class="social-card">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<span>instagram</span>
+</a>
+
+<a href="https://behance.net" target="_blank" class="social-card">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733609.png">
+<span>behance</span>
+</a>
+
+<a href="https://linkedin.com" target="_blank" class="social-card">
+<img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png">
+<span>linkedin</span>
+</a>
+
+<a href="https://github.com" target="_blank" class="social-card">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
+<span>github</span>
+</a>
+
+</div>
+
+</section>
+
+
+<section class="contact fade" id="contact">
+
+<h2>Want to work together?</h2>
+
+<p>
+Send a message if you want to collaborate on design or digital products.
+</p>
+
+<button onclick="sendEmail()">Contact Me</button>
+<div class="cta-row" style="justify-content:center; margin-top:14px;">
+    <a class="btn btn-primary" style="margin-top:20px;
+background:#6e63ff;
+border:none;
+color:white;
+padding:12px 22px;
+border-radius:25px;
+cursor:pointer;"
+   target="_blank"
+   href="https://wa.me/255626366325?">
+   WhatsApp to start a project
+</a>
+  </div>
+
+</section>
+
+
+<footer>
+© 2026 Costantino Henry
+</footer>
+
+
+<script>
+
+/* SCROLL ANIMATION */
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el)
+})
+
+
+/* EMAIL BUTTON */
+
+function sendEmail(){
+
+window.location.href="mailto:hello@example.com?subject=Project Inquiry"
+
+}
+
+</script>
+
+</body>
+</html>
